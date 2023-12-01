@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="msg">
+    <button id="send">Send</button>
+    <div id="messages">
+
+    </div>
+    <div id="users">
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const usersEl = document.getElementById('users');
+      const socket = io();
+      socket.on('new user', (userId) => {
+        const userEl = document.createElement('p');
+        userEl.setAttribute('id', userId);
+        userEl.innerText = userId;
+        userEl.onclick = function(e) {
+          socket.emit('privateMessage', e.target.innerText)
+        }
+        usersEl.appendChild(userEl);
+      })
+      socket.on("message", function(message){
+        console.log(message);
+      })
+        // let msgBox = document.getElementById("messages");
+        // let msgText = document.getElementById("msg");
+        // let sendBtn = document.getElementById("send");
+        // sendBtn.addEventListener("click", function(){
+        //     socket.emit("chatMessage", {text: msgText.value});
+        // })
+
+        // socket.on('io.emit', (text) => console.log(text));
+        // socket.on('socket.broadcast', (text) => console.log(text));
+    </script>
+</body>
+</html>

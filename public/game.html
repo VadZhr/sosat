@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        gap: 10px;
+    }
+    div{
+        border: 1px solid black
+    }
+    #container{
+        width: 600px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+    .rows {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 600px;
+        height: 200px;
+    }
+    .rows > div {
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        height: 200px;
+        
+    }
+    .gameEl:hover{
+        background-color: blanchedalmond;
+    }
+
+</style>
+<body>
+    <div id="container">
+        <div class="rows">
+           <div class="gameEl" name="1"></div>
+           <div class="gameEl" name="2"></div>
+           <div class="gameEl" name="3"></div>
+        </div>
+        <div class="rows">
+            <div class="gameEl" name="4"></div>
+            <div class="gameEl" name="5"></div>
+            <div class="gameEl" name="6"></div>
+        </div>
+        <div class="rows">
+            <div class="gameEl"name="7"></div>
+           <div class="gameEl"name="8"></div>
+           <div class="gameEl"name="9"></div>
+        </div>
+    </div>
+    <button id="start">START</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
